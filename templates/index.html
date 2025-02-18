@@ -1,43 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Breast Cancer Prediction</title>
-    <script>
-        async function submitForm(event) {
-            event.preventDefault(); // Prevent form submission
-
-            // Get form data
-            const formData = new FormData(document.getElementById('predictionForm'));
-
-            // Send data to the server
-            const response = await fetch('/predict', {
-                method: 'POST',
-                body: formData
-            });
-
-            // Display the result
-            const result = await response.text();
-            document.getElementById('result').innerText = result;
-        }
-    </script>
+    <title>Student Performance Classifier</title>
 </head>
 <body>
-    <h1>Breast Cancer Prediction</h1>
-    <form id="predictionForm" onsubmit="submitForm(event)">
-        <label for="Bare_nuclei">Bare Nuclei:</label>
-        <input type="number" step="any" name="Bare_nuclei" required><br><br>
-        <label for="Normal_nucleoli">Normal Nucleoli:</label>
-        <input type="number" step="any" name="Normal_nucleoli" required><br><br>
-        <label for="Clump_thickness">Clump Thickness:</label>
-        <input type="number" step="any" name="Clump_thickness" required><br><br>
-        <label for="Uniformity_of_cell_shape">Uniformity of Cell Shape:</label>
-        <input type="number" step="any" name="Uniformity_of_cell_shape" required><br><br>
-        <label for="Single_epithelial_cell_size">Single Epithelial Cell Size:</label>
-        <input type="number" step="any" name="Single_epithelial_cell_size" required><br><br>
+    <h1>Predict Ethnicity Group</h1>
+    <form action="/predict" method="post">
+        Math Score: <input type="number" name="math_score" required><br>
+        Reading Score: <input type="number" name="reading_score" required><br>
+        Writing Score: <input type="number" name="writing_score" required><br>
         <button type="submit">Predict</button>
     </form>
-    <h2 id="result"></h2>
 </body>
 </html>
