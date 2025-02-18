@@ -20,7 +20,7 @@ jobs:
           pip install -r requirements.txt
       - name: Deploy to Heroku
         env:
-          HEROKU_API_KEY: ${{ secrets.HRKU-19de4763-e07a-48a0-a3b8-ddb12dfea892 }}
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
         run: |
           git remote add heroku https://heroku:$HRKU-19de4763-e07a-48a0-a3b8-ddb12dfea892@git.heroku.com/assignment4breastcancerpredict.git
           git push heroku main
